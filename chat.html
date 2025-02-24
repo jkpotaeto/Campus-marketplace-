@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Messages</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="listings.html">Listings</a>
+            <a href="profile.html">Profile</a>
+            <a href="login.html" id="login-btn">Login</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Chat with Sellers</h2>
+        <div id="chat-box">
+            <p>User1: Is the book still available?</p>
+            <p>User2: Yes, it's available!</p>
+        </div>
+        <input type="text" id="chat-input" placeholder="Type a message">
+        <button onclick="sendMessage()">Send</button>
+    </section>
+
+    <script>
+        function sendMessage() {
+            let message = document.getElementById("chat-input").value;
+            let chatBox = document.getElementById("chat-box");
+            if (message.trim() !== "") {
+                let newMessage = document.createElement("p");
+                newMessage.textContent = "You: " + message;
+                chatBox.appendChild(newMessage);
+                document.getElementById("chat-input").value = "";
+            }
+        }
+    </script>
+</body>
+</html>
